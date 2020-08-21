@@ -1,16 +1,6 @@
 import * as ActionTypes from "./ActionTypes";
-import { baseUrl } from "../Shared/baseUrl";
+import { baseUrl } from "../shared/baseUrl";
 
-export const postFavorite = (campsiteId) => (dispatch) => {
-  setTimeout(() => {
-    dispatch(addFavorite(campsiteId));
-  }, 2000);
-};
-
-export const addFavorite = (campsiteId) => ({
-  type: ActionTypes.ADD_FAVORITE,
-  payload: campsiteId,
-});
 
 export const fetchComments = () => (dispatch) => {
   return fetch(baseUrl + "comments")
@@ -164,4 +154,32 @@ export const partnersFailed = (errMess) => ({
 export const addPartners = (partners) => ({
   type: ActionTypes.ADD_PARTNERS,
   payload: partners,
+});
+
+export const postFavorite = (campsiteId) => (dispatch) => {
+  setTimeout(() => {
+    dispatch(addFavorite(campsiteId));
+  }, 2000);
+};
+
+export const addFavorite = (campsiteId) => ({
+  type: ActionTypes.ADD_FAVORITE,
+  payload: campsiteId,
+});
+
+function postComment(campsiteId, rating, author, text) {
+  date(Date.toISOString())
+  setTimeout(() => {
+  this.props.dispatch({ type: "newComment" })
+}, 2000)
+
+return ({type: campsiteId,
+  rating,
+  author,
+  text,},{ dispatch })
+
+};
+export const addComment = () => ({
+  type: ActionTypes.ADD_COMMENTS,
+  payload: postComment(newComment),
 });
